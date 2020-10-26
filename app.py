@@ -15,7 +15,7 @@ CAPTCHA_CHARS = len(CHAR_SET)                # 分类数
 IMAGE_SHAPE = (40, 120)
 
 model = BLSTMCTCNetwork(IMAGE_SHAPE, CAPTCHA_CHARS)
-model.load_state_dict(torch.load("./models/save_23.models"))
+model.load_state_dict(torch.load(r"./models/save_23.models",map_location=torch.device('cpu')))
 model = model.to(DEVICE)
 model.eval()  # 转入测试模式, 更新BN计算方法
 
